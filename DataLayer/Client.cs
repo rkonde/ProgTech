@@ -6,7 +6,7 @@ namespace DataLayer
 {
     public class Client
     {
-        public Client(int money)
+        public Client(double money)
         {
             Basket = new List<Product>();
             Money = money;
@@ -14,6 +14,6 @@ namespace DataLayer
 
         public string Name { get; set; }
         public ICollection<Product> Basket { get; set; }
-        public int Money;
+        public double Money;
     }
 }

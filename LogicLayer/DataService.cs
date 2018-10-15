@@ -45,7 +45,7 @@ namespace LogicLayer
 
         public Boolean Checkout(Client client)
         {
-            if (CanTakeMoneyFrom(client))
+            if (CanPay(client))
             {
                 Event anEvent = new Event("Checkout of " + client.Name);
                 Invoice anInvoice = new Invoice();
@@ -64,15 +64,7 @@ namespace LogicLayer
             client.Money -= ValueOfBasket(client);
         }
 
-        /*private void TakeProductsFrom(Client client)
-        {
-            foreach (Product product in client.Basket)
-            {
-                TakeOutFromBasket(client, product);
-            }
-        }*/
-
-        private bool CanTakeMoneyFrom(Client client)
+        private bool CanPay(Client client)
         {
             if (client.Money >= ValueOfBasket(client))
             {
@@ -81,12 +73,12 @@ namespace LogicLayer
             else return false;
         }
 
-        private int ValueOfBasket(Client client)
+        private double ValueOfBasket(Client client)
         {
-            int PriceOfProducts = 0;
-            foreach (Product element in client.Basket)
+            double PriceOfProducts = 0;
+            foreach (Product product in client.Basket)
             {
-                PriceOfProducts += element.Price;
+                PriceOfProducts += product.Price;
             }
             return PriceOfProducts;
         }

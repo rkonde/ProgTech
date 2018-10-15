@@ -3765,19 +3765,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Maja\\.nuget\\packages\\": {}
+    "C:\\Users\\konra\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Dokumenty\\Sem_V\\Programming Technologies\\ProgTech\\DataLayer\\DataLayer.csproj",
+      "projectUniqueName": "C:\\Users\\konra\\source\\repos\\Task1\\DataLayer\\DataLayer.csproj",
       "projectName": "DataLayer",
-      "projectPath": "E:\\Dokumenty\\Sem_V\\Programming Technologies\\ProgTech\\DataLayer\\DataLayer.csproj",
-      "packagesPath": "C:\\Users\\Maja\\.nuget\\packages\\",
-      "outputPath": "E:\\Dokumenty\\Sem_V\\Programming Technologies\\ProgTech\\DataLayer\\obj\\",
+      "projectPath": "C:\\Users\\konra\\source\\repos\\Task1\\DataLayer\\DataLayer.csproj",
+      "packagesPath": "C:\\Users\\konra\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\konra\\source\\repos\\Task1\\DataLayer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Maja\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\konra\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
