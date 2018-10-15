@@ -3784,19 +3784,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\konra\\.nuget\\packages\\": {}
+    "C:\\Users\\Maja\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\konra\\source\\repos\\Task1\\LogicLayer\\LogicLayer.csproj",
+      "projectUniqueName": "E:\\Dokumenty\\Sem_V\\Programming Technologies\\ProgTech\\LogicLayer\\LogicLayer.csproj",
       "projectName": "LogicLayer",
-      "projectPath": "C:\\Users\\konra\\source\\repos\\Task1\\LogicLayer\\LogicLayer.csproj",
-      "packagesPath": "C:\\Users\\konra\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\konra\\source\\repos\\Task1\\LogicLayer\\obj\\",
+      "projectPath": "E:\\Dokumenty\\Sem_V\\Programming Technologies\\ProgTech\\LogicLayer\\LogicLayer.csproj",
+      "packagesPath": "C:\\Users\\Maja\\.nuget\\packages\\",
+      "outputPath": "E:\\Dokumenty\\Sem_V\\Programming Technologies\\ProgTech\\LogicLayer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\konra\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Maja\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3809,8 +3809,8 @@
       "frameworks": {
         "netstandard1.4": {
           "projectReferences": {
-            "C:\\Users\\konra\\source\\repos\\Task1\\DataLayer\\DataLayer.csproj": {
-              "projectPath": "C:\\Users\\konra\\source\\repos\\Task1\\DataLayer\\DataLayer.csproj"
+            "E:\\Dokumenty\\Sem_V\\Programming Technologies\\ProgTech\\DataLayer\\DataLayer.csproj": {
+              "projectPath": "E:\\Dokumenty\\Sem_V\\Programming Technologies\\ProgTech\\DataLayer\\DataLayer.csproj"
             }
           }
         }

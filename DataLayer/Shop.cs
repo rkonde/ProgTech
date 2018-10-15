@@ -11,12 +11,12 @@ namespace DataLayer
             Clients = new List<Client>();
             Catalog = new List<Product>();
             Events = new List<Event>();
-            InStock = new List<Product>();
+            Stock = new List<Product>();
         }
 
         public ICollection<Client> Clients { get; set; }
         public ICollection<Product> Catalog { get; set; }
         public ICollection<Event> Events { get; set; }
-        public ICollection<Product> InStock { get; set; }
+        public ICollection<Product> Stock { get; set; }
     }
 }

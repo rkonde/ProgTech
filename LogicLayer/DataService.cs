@@ -13,8 +13,14 @@ namespace LogicLayer
             if (IsInStock(product))
             {
                 client.Basket.Add(product);
-                shop.InStock.Remove(product);
+                RemoveFromStock(product);
             }
+        }
+
+        public void RemoveFromBasket(Client client, Product product)
+        {
+            client.Basket.Remove(product);
+            AddToStock(product);
         }
 
         public void AddToCatalog(Product product)
@@ -22,12 +28,22 @@ namespace LogicLayer
             shop.Catalog.Add(product);
         }
 
-        public void AddToStock(Product product)
+        public void RemoveFromCatalog(Product product)
         {
-            shop.Catalog.Add(product);
+            shop.Catalog.Remove(product);
         }
 
-        public void Checkout(Client client)
+        public void AddToStock(Product product)
+        {
+            shop.Stock.Add(product);
+        }
+
+        public void RemoveFromStock(Product product)
+        {
+            shop.Stock.Remove(product);
+        }
+
+        public Boolean Checkout(Client client)
         {
             if (CanTakeMoneyFrom(client))
             {
@@ -36,28 +52,29 @@ namespace LogicLayer
                 anInvoice.ListOfGoods = client.Basket;
                 anEvent.Invoice = anInvoice;
                 shop.Events.Add(anEvent);
-                TakeMoneyFrom(client);
+                Pay(client);
+                client.Basket.Clear();
+                return true;
             }
-            else TakeProductsFrom(client);
+            else return false;
         }
 
-        private void TakeMoneyFrom(Client client)
+        private void Pay(Client client)
         {
             client.Money -= ValueOfBasket(client);
         }
 
-        private void TakeProductsFrom(Client client)
+        /*private void TakeProductsFrom(Client client)
         {
             foreach (Product product in client.Basket)
             {
-                shop.InStock.Add(product);
+                TakeOutFromBasket(client, product);
             }
-            client.Basket.Clear();
-        }
+        }*/
 
         private bool CanTakeMoneyFrom(Client client)
         {
-            if (client.Money > ValueOfBasket(client))
+            if (client.Money >= ValueOfBasket(client))
             {
                 return true;
             }
@@ -76,7 +93,7 @@ namespace LogicLayer
 
         public bool IsInStock(Product product)
         {
-            return shop.InStock.Contains(product) ? true : false;
+            return shop.Stock.Contains(product) ? true : false;
         }
     }
 
