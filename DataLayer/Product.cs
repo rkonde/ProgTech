@@ -18,7 +18,7 @@ namespace DataLayer
 
         public bool Equals(Product product)
         {
-            return product.Name == Name;
+            return product.Name == Name && product.Price == Price;
         }
     }
 }
