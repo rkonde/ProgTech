@@ -9,7 +9,7 @@ namespace DataLayer
         public Shop()
         {
             Clients = new List<Client>();
-            Catalog = new List<Product>();
+            Catalog = new HashSet<Product>();
             Events = new List<Event>();
             Stock = new List<Product>();
         }
