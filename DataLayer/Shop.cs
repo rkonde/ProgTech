@@ -9,14 +9,14 @@ namespace DataLayer
         public Shop()
         {
             Clients = new List<Client>();
-            Catalog = new HashSet<Product>();
+            Catalog = new List<Product>();
             Events = new List<Event>();
             Stock = new List<Product>();
         }
 
-        public ICollection<Client> Clients { get; set; }
-        public ICollection<Product> Catalog { get; set; }
-        public ICollection<Event> Events { get; set; }
-        public ICollection<Product> Stock { get; set; }
+        public List<Client> Clients { get; set; }
+        public List<Product> Catalog { get; set; }
+        public List<Event> Events { get; set; }
+        public List<Product> Stock { get; set; }
     }
 }

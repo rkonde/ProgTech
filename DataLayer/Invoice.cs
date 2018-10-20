@@ -6,6 +6,6 @@ namespace DataLayer
 {
     public class Invoice
     {
-        public ICollection<Product> ListOfGoods { get; set; }
+        public List<Product> ListOfGoods { get; set; }
     }
 }

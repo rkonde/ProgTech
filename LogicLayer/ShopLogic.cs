@@ -8,16 +8,18 @@ namespace LogicLayer
 
     public class ShopLogic
     {
-        public Shop shop { get; }
+        public Shop shop { get; set; }
 
         public ShopLogic()
         {
             shop = new Shop();
         }
-    
+
+        public void ParseData(Shop shop) => this.shop = shop;
+
         public bool AddToBasket(Client client, Product product)
         {
-            if (IsInStock(product) && IsInShop(client))
+            if (IsInStock(product.Name) && IsInShop(client.Name))
             {
                 client.Basket.Add(product);
                 RemoveFromStock(product);
@@ -44,7 +46,10 @@ namespace LogicLayer
 
         public void AddToCatalog(Product product)
         {
-            shop.Catalog.Add(product);
+            if (!IsInCatalog(product.Name))
+            {
+                shop.Catalog.Add(product);
+            }
         }
 
         public void RemoveFromCatalog(Product product)
@@ -94,7 +99,7 @@ namespace LogicLayer
 
         private double ValueOfBasket(Client client)
         {
-            double PriceOfProducts = 0;
+            double PriceOfProducts = 0.0;
             foreach (Product product in client.Basket)
             {
                 PriceOfProducts += product.Price;
@@ -102,19 +107,22 @@ namespace LogicLayer
             return PriceOfProducts;
         }
 
-        public bool IsInStock(Product product)
+        public bool IsInStock(String productName)
         {
-            return shop.Stock.Contains(product) ? true : false;
+            Product temp = new Product(0.0, productName);
+            return shop.Stock.Contains(temp) ? true : false;
         }
 
-        public bool IsInCatalog(Product product)
+        public bool IsInCatalog(String productName)
         {
-            return shop.Catalog.Contains(product) ? true : false;
+            Product temp = new Product(0.0, productName);
+            return shop.Catalog.Contains(temp) ? true : false;
         }
 
-        public bool IsInShop(Client client)
+        public bool IsInShop(String clientName)
         {
-            return shop.Clients.Contains(client) ? true : false;
+            Client temp = new Client(0.0) { Name = clientName };
+            return shop.Clients.Contains(temp) ? true : false;
         }
     }
 

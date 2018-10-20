@@ -71,46 +71,34 @@ namespace TestShop
         public void TestLogic()
         {
             ShopLogic shopLogic = new ShopLogic();
-            Client client1 = new Client(5)
-            {
-                Name = "Mark"
-            };
-            Client client2 = new Client(4)
-            {
-                Name = "Zuckerberg"
-            };
-            Product milk = new Product(3.5, "milk");
-            Product bun = new Product(1, "bun");
+            DataGeneration datagen = new DataGeneration();
+            //shopLogic.shop = datagen.GiveData();
+            shopLogic.ParseData(datagen.GiveData());
 
-            shopLogic.EnterShop(client1);
-            shopLogic.AddToCatalog(milk);
-            shopLogic.AddToStock(milk);
-            shopLogic.AddToCatalog(bun);
-            shopLogic.AddToStock(bun);
+            Assert.IsTrue(shopLogic.IsInStock("Chocolate"));
+            Assert.IsTrue(shopLogic.IsInStock("Bun"));
+            Assert.IsTrue(shopLogic.IsInStock("Cheese"));
+            Assert.IsTrue(shopLogic.IsInCatalog("Eggs"));
+            Assert.IsTrue(shopLogic.IsInCatalog("Water"));
+            Assert.IsTrue(shopLogic.IsInCatalog("Milk"));
+            Assert.IsTrue(shopLogic.IsInShop("Mark"));
+            Assert.IsTrue(shopLogic.IsInShop("Cody"));
+            Assert.IsTrue(shopLogic.IsInShop("Anna"));
 
-            Assert.IsTrue(shopLogic.IsInStock(milk));
-            Assert.IsTrue(shopLogic.IsInStock(bun));
-            Assert.IsTrue(shopLogic.IsInCatalog(milk));
-            Assert.IsTrue(shopLogic.IsInCatalog(bun));
-            Assert.IsFalse(shopLogic.AddToBasket(client2, milk));
+            shopLogic.AddToBasket(datagen.client2, datagen.product1);
+            shopLogic.AddToBasket(datagen.client2, datagen.product6);
+            Assert.IsFalse(shopLogic.Checkout(datagen.client2));
 
-            shopLogic.EnterShop(client2);
-            shopLogic.AddToBasket(client2, milk);
-            shopLogic.AddToBasket(client2, bun);
+            shopLogic.RemoveFromBasket(datagen.client2, datagen.product1);
+            shopLogic.AddToBasket(datagen.client2, datagen.product2);
+            
 
-            Assert.IsFalse(shopLogic.Checkout(client2));
-
-            shopLogic.RemoveFromBasket(client2, bun);
-            shopLogic.AddToBasket(client1, bun);
-
-            Assert.IsTrue(shopLogic.Checkout(client2));
-            Assert.IsTrue(shopLogic.Checkout(client1));
-            Assert.AreEqual(client1.Money, 4);
-            Assert.AreEqual(client2.Money, 0.5);
-            Assert.IsFalse(shopLogic.IsInStock(milk));
-            Assert.IsFalse(shopLogic.IsInStock(bun));
-            Assert.IsTrue(shopLogic.IsInCatalog(milk));
-            Assert.IsTrue(shopLogic.IsInCatalog(bun));
+            Assert.IsTrue(shopLogic.Checkout(datagen.client2));
+            //Assert.IsTrue(datagen.client2.Money == 0.55);
+            Assert.IsFalse(shopLogic.IsInStock("Ice Cream"));
+            Assert.IsFalse(shopLogic.IsInStock("Milk"));
+            //Assert.IsTrue(shopLogic.IsInCatalog("Ice Cream"));
+            //Assert.IsTrue(shopLogic.IsInCatalog("Milk"));
         }
     }
 }
