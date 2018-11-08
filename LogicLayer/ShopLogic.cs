@@ -1,6 +1,7 @@
 ﻿using DataLayer;
 using System.Collections.Generic;
 using System;
+using System.Diagnostics;
 
 namespace LogicLayer
 {
@@ -97,11 +98,12 @@ namespace LogicLayer
             else return false;
         }
 
-        private double ValueOfBasket(Client client)
+        public double ValueOfBasket(Client client)
         {
             double PriceOfProducts = 0.0;
             foreach (Product product in client.Basket)
             {
+                Debug.WriteLine(product.Price);
                 PriceOfProducts += product.Price;
             }
             return PriceOfProducts;

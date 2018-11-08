@@ -16,11 +16,11 @@ namespace TestShop
             shop = new Shop();
         }
 
-        public Client client1 = new Client(10.0) { Name = "Mark" };
+        public Client client1 = new Client(5.0) { Name = "Mark" };
         public Client client2 = new Client(5.0) { Name = "Cody" };
-        public Client client3 = new Client(7.0) { Name = "Anna" };
-        public Client client4 = new Client(4.0) { Name = "Sarah" };
-        public Client client5 = new Client(8.0) { Name = "Gabe" };
+        public Client client3 = new Client(5.0) { Name = "Anna" };
+        public Client client4 = new Client(5.0) { Name = "Sarah" };
+        public Client client5 = new Client(5.0) { Name = "Gabe" };
         private List<Client> Clients;
 
         public Product product1 = new Product(1.45, "Chocolate");

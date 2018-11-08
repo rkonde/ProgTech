@@ -2,12 +2,25 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using LogicLayer;
 using DataLayer;
+using System.Diagnostics;
 
 namespace TestShop
 {
     [TestClass]
     public class UnitTestShop
     {
+        private TestContext testContextInstance;
+
+        /// <summary>
+        ///  Gets or sets the test context which provides
+        ///  information about and functionality for the current test run.
+        ///</summary>
+        public TestContext TestContext
+        {
+            get { return testContextInstance; }
+            set { testContextInstance = value; }
+        }
+
         [TestMethod]
         public void TestProduct()
         {
@@ -85,20 +98,18 @@ namespace TestShop
             Assert.IsTrue(shopLogic.IsInShop("Cody"));
             Assert.IsTrue(shopLogic.IsInShop("Anna"));
 
-            shopLogic.AddToBasket(datagen.client2, datagen.product1);
-            shopLogic.AddToBasket(datagen.client2, datagen.product6);
-            Assert.IsFalse(shopLogic.Checkout(datagen.client2));
+            shopLogic.AddToBasket(shopLogic.shop.Clients[1], shopLogic.shop.Stock[0]);
+            shopLogic.AddToBasket(shopLogic.shop.Clients[1], shopLogic.shop.Stock[4]);
+            Assert.IsTrue(shopLogic.ValueOfBasket(shopLogic.shop.Clients[1]) == 5.20);
+            Assert.IsFalse(shopLogic.Checkout(shopLogic.shop.Clients[1]));
 
-            shopLogic.RemoveFromBasket(datagen.client2, datagen.product1);
-            shopLogic.AddToBasket(datagen.client2, datagen.product2);
+            shopLogic.RemoveFromBasket(shopLogic.shop.Clients[1], shopLogic.shop.Clients[1].Basket[1]);
+            shopLogic.AddToBasket(shopLogic.shop.Clients[1], shopLogic.shop.Stock[1]);
             
 
-            Assert.IsTrue(shopLogic.Checkout(datagen.client2));
-            //Assert.IsTrue(datagen.client2.Money == 0.55);
-            Assert.IsFalse(shopLogic.IsInStock("Ice Cream"));
-            Assert.IsFalse(shopLogic.IsInStock("Milk"));
-            //Assert.IsTrue(shopLogic.IsInCatalog("Ice Cream"));
-            //Assert.IsTrue(shopLogic.IsInCatalog("Milk"));
+            Assert.IsTrue(shopLogic.Checkout(shopLogic.shop.Clients[1]));
+            Assert.IsTrue(shopLogic.IsInStock("Ice Cream"));
+            Assert.IsFalse(shopLogic.IsInStock("Water"));
         }
     }
 }
