@@ -49,7 +49,6 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataGeneration.cs" />
     <Compile Include="UnitTestShop.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

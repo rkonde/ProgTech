@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicLayer", "LogicLayer\Lo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestShop", "TestShop\TestShop.csproj", "{6ADFD3C1-D27E-490E-BB60-6D60666BD2FA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresentationLayer", "PresentationLayer\PresentationLayer.csproj", "{04012F4E-3D6C-41E5-A2A7-13357830D055}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{6ADFD3C1-D27E-490E-BB60-6D60666BD2FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6ADFD3C1-D27E-490E-BB60-6D60666BD2FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6ADFD3C1-D27E-490E-BB60-6D60666BD2FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04012F4E-3D6C-41E5-A2A7-13357830D055}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04012F4E-3D6C-41E5-A2A7-13357830D055}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04012F4E-3D6C-41E5-A2A7-13357830D055}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04012F4E-3D6C-41E5-A2A7-13357830D055}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

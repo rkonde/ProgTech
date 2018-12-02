@@ -12,6 +12,13 @@ namespace DataLayer
             Money = money;
         }
 
+        public Client(double money, String name)
+        {
+            Basket = new List<Product>();
+            Money = money;
+            Name = name;
+        }
+
         public string Name { get; set; }
         public List<Product> Basket { get; set; }
         public double Money;

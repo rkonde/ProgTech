@@ -11,10 +11,6 @@ namespace TestShop
     {
         private TestContext testContextInstance;
 
-        /// <summary>
-        ///  Gets or sets the test context which provides
-        ///  information about and functionality for the current test run.
-        ///</summary>
         public TestContext TestContext
         {
             get { return testContextInstance; }
@@ -85,7 +81,6 @@ namespace TestShop
         {
             ShopLogic shopLogic = new ShopLogic();
             DataGeneration datagen = new DataGeneration();
-            //shopLogic.shop = datagen.GiveData();
             shopLogic.ParseData(datagen.GiveData());
 
             Assert.IsTrue(shopLogic.IsInStock("Chocolate"));
@@ -100,13 +95,13 @@ namespace TestShop
 
             shopLogic.AddToBasket(shopLogic.shop.Clients[1], shopLogic.shop.Stock[0]);
             shopLogic.AddToBasket(shopLogic.shop.Clients[1], shopLogic.shop.Stock[4]);
+
             Assert.IsTrue(shopLogic.ValueOfBasket(shopLogic.shop.Clients[1]) == 5.20);
             Assert.IsFalse(shopLogic.Checkout(shopLogic.shop.Clients[1]));
 
             shopLogic.RemoveFromBasket(shopLogic.shop.Clients[1], shopLogic.shop.Clients[1].Basket[1]);
             shopLogic.AddToBasket(shopLogic.shop.Clients[1], shopLogic.shop.Stock[1]);
             
-
             Assert.IsTrue(shopLogic.Checkout(shopLogic.shop.Clients[1]));
             Assert.IsTrue(shopLogic.IsInStock("Ice Cream"));
             Assert.IsFalse(shopLogic.IsInStock("Water"));
