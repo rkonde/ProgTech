@@ -5,22 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PresentationLayer"
         mc:Ignorable="d"
-        Title="BestShopEver" Height="450" Width="800">
+        Title="BestShopEver" Height="450" Width="800"
+        ResizeMode="NoResize">
     <Grid x:Name="mainGrid" Background="BlanchedAlmond" Margin="10,10,10,10">
 
         <StackPanel x:Name="mainPanel" Margin="10,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Height="400" Width="770" Visibility="Visible">
 
-            <Button x:Name="showProductsButton" Content="Products" HorizontalAlignment="Center" Margin="400,30,0,0" VerticalAlignment="Center" Width="90" Click="showProductsButton_Click"/>
-            <Button x:Name="showClientsButton" Content="Clients" HorizontalAlignment="Center" Margin="600,-20,0,0" VerticalAlignment="Center" Width="90" Click="showClientsButton_Click"/>
-            <Button x:Name="showEventsButton" Content="Events" HorizontalAlignment="Center" Margin="400,10,0,0" VerticalAlignment="Center" Width="90" Click="showEventsButton_Click"/>
-            <Button x:Name="checkoutButton" Content="Checkout" HorizontalAlignment="Center" Margin="600,-20,0,0" VerticalAlignment="Center" Width="90" Click="checkoutButton_Click"/>
-            <Button x:Name="addClientButton" Content="Add Client" HorizontalAlignment="Center" Margin="400,10,0,0" VerticalAlignment="Center" Width="90" Click="addClientButton_Click"/>
-            <Button x:Name="addProductButton" Content="Add Product" HorizontalAlignment="Center" Margin="600,-20,0,0" VerticalAlignment="Center" Width="90" Click="addProductButton_Click"/>
-            <Button x:Name="deleteClientButton" Content="Delete Client" HorizontalAlignment="Center" Margin="400,10,0,0" VerticalAlignment="Center" Width="90" Click="deleteClientButton_Click"/>
-            <Button x:Name="deleteProductButton" Content="Delete Product" HorizontalAlignment="Center" Margin="600,-20,0,0" VerticalAlignment="Center" Width="90" Click="deleteProductButton_Click"/>
-            
-            
-            <ListView x:Name="productView" Height="350" HorizontalAlignment="Center" Margin="-250,-115,0,0" Visibility="Visible">
+            <Button x:Name="showProductsButton" Content="Products" HorizontalAlignment="Center" Margin="350,30,0,0" VerticalAlignment="Center" Width="110" Click="showProductsButton_Click"/>
+            <Button x:Name="showClientsButton" Content="Clients" HorizontalAlignment="Center" Margin="600,-20,0,0" VerticalAlignment="Center" Width="110" Click="showClientsButton_Click"/>
+            <Button x:Name="showEventsButton" Content="Events" HorizontalAlignment="Center" Margin="350,10,0,0" VerticalAlignment="Center" Width="110" Click="showEventsButton_Click"/>
+            <Button x:Name="checkoutButton" Content="Checkout" HorizontalAlignment="Center" Margin="600,-20,0,0" VerticalAlignment="Center" Width="110" Click="checkoutButton_Click"/>
+            <Button x:Name="addClientButton" Content="Add Client" HorizontalAlignment="Center" Margin="350,10,0,0" VerticalAlignment="Center" Width="110" Click="addClientButton_Click"/>
+            <Button x:Name="addProductButton" Content="Add Product" HorizontalAlignment="Center" Margin="600,-20,0,0" VerticalAlignment="Center" Width="110" Click="addProductButton_Click"/>
+            <Button x:Name="deleteFromBasketButton" Content="Delete from Basket" HorizontalAlignment="Center" Margin="350,10,0,0" VerticalAlignment="Center" Width="110" Click="deleteFromBasketButton_Click"/>
+            <Button x:Name="addToBasketButton" Content="Add to Basket" HorizontalAlignment="Center" Margin="600,-20,0,0" VerticalAlignment="Center" Width="110" Click="addToBasketButton_Click"/>
+            <Button x:Name="deleteButton" Content="Delete" HorizontalAlignment="Center" Margin="350,10,0,0" VerticalAlignment="Center" Width="110" Click="deleteButton_Click"/>
+
+            <ListView x:Name="productView" Height="350" HorizontalAlignment="Center" Margin="-250,-135,0,0" Visibility="Collapsed">
                 <ListView.View>
                     <GridView>
                         <GridView.ColumnHeaderContainerStyle>
@@ -35,7 +36,7 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-            <ListView x:Name="clientView" Height="350" HorizontalAlignment="Center" Margin="-250,-115,0,0" Visibility="Collapsed">
+            <ListView x:Name="clientView" Height="350" HorizontalAlignment="Center" Margin="-250,-135,0,0" Visibility="Collapsed">
                 <ListView.View>
                     <GridView>
                         <GridView.ColumnHeaderContainerStyle>
@@ -50,7 +51,7 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-            <ListView x:Name="eventView" Height="350" HorizontalAlignment="Center" Margin="-250,-115,0,0" Visibility="Collapsed">
+            <ListView x:Name="eventView" Height="350" HorizontalAlignment="Center" Margin="-250,-135,0,0" Visibility="Visible">
                 <ListView.View>
                     <GridView>
                         <GridView.ColumnHeaderContainerStyle>
@@ -65,8 +66,35 @@
                 </ListView.View>
             </ListView>
 
-            <Label x:Name="warningLabel" HorizontalAlignment="Center" Margin=" 500, -440,0,0" Foreground="#ff0000" VerticalAlignment="Center" Width="Auto"/>
-            <Image x:Name="imageMain" HorizontalAlignment="Center" Height="Auto" Margin="500,-170,0,0" VerticalAlignment="Center" Width="200" Source="C:\Users\konra\Desktop\best_shop_ever.png"/>
+            <Label x:Name="warningLabel" Foreground="#ff0000" HorizontalAlignment="Center" Margin=" 475, -380,0,0" VerticalAlignment="Center" Width="Auto"/>
+            <Image x:Name="imageMain" HorizontalAlignment="Center" Height="Auto" Margin="475,-170,0,0" VerticalAlignment="Center" Width="200" Source="C:\Users\konra\Desktop\best_shop_ever.png"/>
+            <Label x:Name="viewType" Content="Events" HorizontalAlignment="Center" Margin=" -250, -720,0,0" VerticalAlignment="Center" Width="Auto"/>
+        </StackPanel>
+
+        <StackPanel x:Name="productSelectPanel" Margin="10,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Height="400" Width="770" Visibility="Collapsed">
+
+            <Button x:Name="backClientButton" Content="Back" HorizontalAlignment="Center" Margin="400,40,0,0" VerticalAlignment="Center" Width="90" Click="backClientButton_Click"/>
+            <Button x:Name="productClientButton" HorizontalAlignment="Center" Margin="600,-20,0,0" VerticalAlignment="Center" Width="90" Click="productClientButton_Click"/>
+
+            <ListView x:Name="productSelectView" Height="350" HorizontalAlignment="Center" Margin="-250,-35,0,0" Visibility="Visible">
+                <ListView.View>
+                    <GridView>
+                        <GridView.ColumnHeaderContainerStyle>
+                            <Style TargetType="{x:Type GridViewColumnHeader}">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </Style>
+                        </GridView.ColumnHeaderContainerStyle>
+                        <GridViewColumn Header="Name" Width="150" DisplayMemberBinding="{Binding Name}" />
+                        <GridViewColumn Header="Quantity" Width="150" DisplayMemberBinding="{Binding Quantity}" />
+                        <GridViewColumn Header="Price" Width="150" DisplayMemberBinding="{Binding Price}">
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <Label x:Name="clientLabel" HorizontalAlignment="Center" Margin=" 500, -720,0,0" VerticalAlignment="Center" Width="Auto"/>
+            <Image x:Name="imageProductSelect" HorizontalAlignment="Center" Height="Auto" Margin="500,-170,0,0" VerticalAlignment="Center" Width="200" Source="C:\Users\konra\Desktop\best_shop_ever.png"/>
+            <Label x:Name="productText" Content="Products" HorizontalAlignment="Center" Margin=" -250, -720,0,0" VerticalAlignment="Center" Width="Auto"/>
         </StackPanel>
 
         <StackPanel x:Name="addPanel" Margin="10,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Height="400" Width="770" Visibility="Collapsed">
@@ -83,11 +111,9 @@
             <Image x:Name="image" HorizontalAlignment="Center" Height="Auto" Margin="0,-480,0,0" VerticalAlignment="Center" Width="200" Source="C:\Users\konra\Desktop\best_shop_ever.png"/>
 
             <Label x:Name="warning" Content="PROVIDE ALL INFORMATION" HorizontalAlignment="Center" Margin="0,-5,0,0" VerticalAlignment="Center" Width="160" Foreground="#ff0000" Visibility="Collapsed"/>
-            <Label x:Name="success" Content="Client sucessfully added" HorizontalAlignment="Center" Margin="0,-5,0,0" VerticalAlignment="Center" Width="160" Foreground="#008000" Visibility="Collapsed"/>
+            <Label x:Name="success" HorizontalAlignment="Center" Margin="0,-5,0,0" VerticalAlignment="Center" Width="160" Foreground="#008000" Visibility="Collapsed"/>
             <Label x:Name="message" HorizontalAlignment="Center" Margin="0,-310,0,0" VerticalAlignment="Center" Width="Auto"/>
-            
         </StackPanel>
 
-        
     </Grid>
 </Window>
